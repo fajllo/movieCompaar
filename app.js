@@ -2,18 +2,18 @@
 
 // request to http://www.omdbapi.com/?apikey=[15915ed8]&
 
-async function searchMovie(){
+
+async function searchMovie(searchFraze){
     const response = await axios.get("http://www.omdbapi.com/",{
         params: {
             apikey:"15915ed8",
-            s: "Avengers"
+            s: searchFraze
         }
     });
     console.log(response.data)
 
 }
 
-searchMovie()
 
 
 async function fullMovie(){
@@ -26,4 +26,9 @@ async function fullMovie(){
     console.log(response.data)
 }
 
-fullMovie()
+
+const input = document.querySelector("input");
+input.addEventListener("input", (event) =>{
+    searchMovie(event.target.value)
+
+})
