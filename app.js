@@ -24,15 +24,21 @@ async function fullMovie(){
     console.log(response.data)
 }
 
-const input = document.querySelector("input");
-let timeoutId;
-input.addEventListener("input", (event) =>{
-    if(timeoutId){
-        console.log(timeoutId)
-        clearTimeout(timeoutId);
-    }
-    timeoutId = setTimeout(() => {
-        searchMovie(event.target.value)
-    },800)
+function debounce(callback){
+    let timeoutId;
+    return (...args) => {
+        if(timeoutId){
+            clearTimeout(timeoutId);
+        }
+        timeoutId = setTimeout(() => {
+            callback.apply(null,args);
+        },1000);
+    };
+};
 
+const input = document.querySelector("input");
+const onInput = debounce(event => {
+    searchMovie(event.target.value)
 })
+
+input.addEventListener("input",onInput);
