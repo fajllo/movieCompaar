@@ -14,8 +14,6 @@ async function searchMovie(searchFraze){
 
 }
 
-
-
 async function fullMovie(){
     const response = await axios.get("http://www.omdbapi.com/",{
         params: {
@@ -26,9 +24,15 @@ async function fullMovie(){
     console.log(response.data)
 }
 
-
 const input = document.querySelector("input");
+let timeoutId;
 input.addEventListener("input", (event) =>{
-    searchMovie(event.target.value)
+    if(timeoutId){
+        console.log(timeoutId)
+        clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+        searchMovie(event.target.value)
+    },800)
 
 })
