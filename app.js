@@ -24,17 +24,7 @@ async function fullMovie(){
     console.log(response.data)
 }
 
-function debounce(callback){
-    let timeoutId;
-    return (...args) => {
-        if(timeoutId){
-            clearTimeout(timeoutId);
-        }
-        timeoutId = setTimeout(() => {
-            callback.apply(null,args);
-        },800);
-    };
-};
+
 
 const input = document.querySelector("input");
 const onInput = debounce(event => {
