@@ -32,7 +32,7 @@ function debounce(callback){
         }
         timeoutId = setTimeout(() => {
             callback.apply(null,args);
-        },1000);
+        },800);
     };
 };
 
