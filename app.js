@@ -59,6 +59,8 @@ autocomplete.innerHTML = `
 const input = document.querySelector("input");
 const dropdown = document.querySelector(".dropdown");
 const searchResults = document.querySelector(".dropdown-content");
+const body = document.body;
+
 
 const onInput =  async event => {
     const movies = await searchMovie(event.target.value)
@@ -68,7 +70,7 @@ const onInput =  async event => {
         const anchor = document.createElement('a');
         anchor.classList.add("dropdown-item");
         anchor.innerHTML = `
-        <img src="${movie.Poster}">
+        <img src="${movie.Poster} alt="sorry no image!"">
         <h3> ${movie.Title}</h3>
         `;
         searchResults.appendChild(anchor);
@@ -77,3 +79,9 @@ const onInput =  async event => {
 }
 
 input.addEventListener("input", debounce(onInput));
+document.addEventListener('click',event => {
+    if(!autocomplete.contains(event.target)){
+        dropdown.classList.remove('is-active')
+    }
+    
+})
