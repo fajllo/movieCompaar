@@ -10,6 +10,9 @@ async function searchMovie(searchFraze){
             s: searchFraze
         }
     });
+    if (response.data.Response){
+        return [];
+    }
     return response.data.Search;
 
 }
