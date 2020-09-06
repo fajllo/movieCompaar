@@ -64,6 +64,10 @@ const body = document.body;
 
 const onInput =  async event => {
     const movies = await searchMovie(event.target.value)
+    if(!movies.length){
+        dropdown.classList.remove('is-active');
+        return;
+    }
     searchResults.innerHTML="";
     dropdown.classList.add('is-active')
     for(let movie of movies){
@@ -74,6 +78,10 @@ const onInput =  async event => {
         <h3> ${movie.Title}</h3>
         `;
         searchResults.appendChild(anchor);
+        anchor.addEventListener('click', event =>{
+            dropdown.classList.remove('is-active');
+            input.value = `${movie.Title}`
+        })
     }
     
 }
