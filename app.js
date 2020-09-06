@@ -10,7 +10,7 @@ async function searchMovie(searchFraze){
             s: searchFraze
         }
     });
-    console.log(response.data)
+    return response.data.Search;
 
 }
 
@@ -27,8 +27,11 @@ async function fullMovie(){
 
 
 const input = document.querySelector("input");
-const onInput = debounce(event => {
-    searchMovie(event.target.value)
-})
+const onInput =  async event => {
+    const movies = await searchMovie(event.target.value)
+    for(let movie of movies){
+        console.log(movie);
+    }
+}
 
-input.addEventListener("input",onInput);
+input.addEventListener("input", debounce(onInput));
