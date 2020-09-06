@@ -25,9 +25,11 @@ async function searchMovie(searchFraze){
             s: searchFraze
         }
     });
-    if (response.data.Response){
+
+    if (response.data.Error){
         return [];
     }
+
     return response.data.Search;
 
 }
@@ -48,19 +50,30 @@ async function fullMovie(){
 const autocomplete = document.querySelector(".autocomplete");
 autocomplete.innerHTML = `
 <label for=""><b>Search for a movie!</b></label>    
-<input type="text" name="" id="">
-<div class="dropdown ">
+<input type="text" name="" class="input">
+<div class="dropdown">
     <div class="dropdown-menu">
         <div class="dropdown-content results"></div>
     </div>
 </div>`
 const input = document.querySelector("input");
+const dropdown = document.querySelector(".dropdown");
+const searchResults = document.querySelector(".dropdown-content");
 
 const onInput =  async event => {
     const movies = await searchMovie(event.target.value)
+    dropdown.classList.add('is-active')
     for(let movie of movies){
-        console.log(movie);
+        const anchor = document.createElement('a');
+        anchor.classList.add("dropdown-item");
+        anchor.innerHTML = `
+        <img src="${movie.Poster}">
+        <h3> ${movie.Title}</h3>
+        `;
+        console.log(anchor)
+        searchResults.appendChild(anchor);
     }
+    
 }
 
 input.addEventListener("input", debounce(onInput));
