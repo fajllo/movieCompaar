@@ -42,11 +42,32 @@ function movieViwe(movieAll){
     <div class="media-content">
       <div class="content">
         <h1>${movieAll.Title}</h1>
-        <h3>${movieAll.Grnre}</h3>
+        <h3>${movieAll.Genre}</h3>
         <p>${movieAll.Plot}</p>
       </div>
     </div>
-  </article>`
+  </article>
+  <article class="notification is-primary">
+  <p class="title">${movieAll.Awards}</p>
+  <p class="subtitle">Awards</p>
+</article>
+<article class="notification is-primary">
+  <p class="title">${movieAll.BoxOffice}</p>
+  <p class="subtitle">BoxOffice</p>
+</article>
+<article class="notification is-primary">
+  <p class="title">${movieAll.Metascore}</p>
+  <p class="subtitle">Metascore</p>
+</article>
+<article class="notification is-primary">
+  <p class="title">${movieAll.imdbRating}</p>
+  <p class="subtitle">imDB Rating</p>
+</article>
+<article class="notification is-primary">
+  <p class="title">${movieAll.imdbVotes}</p>
+  <p class="subtitle">imDB Votes</p>
+</article>
+  `
 }
 
 
