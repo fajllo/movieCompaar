@@ -3,19 +3,6 @@
 // request to http://www.omdbapi.com/?apikey=[15915ed8]&
 
 
-// old html <div class="dropdown is-active">
-    //       <input type="text" name="" id="">
-    //       <div class="dropdown-menu">
-    //         <div class="dropdown-content">
-    //           <a href="" class="dropdown-item">Mocie #1</a>
-    //           <a href="" class="dropdown-item">Mocie #1</a>
-    //           <a href="" class="dropdown-item">Mocie #1</a>
-
-    //         </div>
-    //       </div>
-    //   </div>  
-
-
 
 
 async function searchMovie(searchFraze){
@@ -34,14 +21,32 @@ async function searchMovie(searchFraze){
 
 }
 
-async function fullMovie(){
+async function fullMovie(movie){
     const response = await axios.get("http://www.omdbapi.com/",{
         params: {
             apikey:"15915ed8",
-            i: "tt0848228"
+            i: movie.imdbID
         }
     });
-    console.log(response.data)
+    document.querySelector("#summary").innerHTML = movieViwe(response.data)
+}
+
+function movieViwe(movieAll){
+    return `   
+ <article class="media">
+    <figure class="media-left">
+      <p class="image">
+        <img src="${movieAll.Poster}" alt="">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <h1>${movieAll.Title}</h1>
+        <h3>${movieAll.Grnre}</h3>
+        <p>${movieAll.Plot}</p>
+      </div>
+    </div>
+  </article>`
 }
 
 
@@ -80,7 +85,8 @@ const onInput =  async event => {
         searchResults.appendChild(anchor);
         anchor.addEventListener('click', event =>{
             dropdown.classList.remove('is-active');
-            input.value = `${movie.Title}`
+            input.value = movie.Title
+            fullMovie(movie);
         })
     }
     
@@ -93,3 +99,4 @@ document.addEventListener('click',event => {
     }
     
 })
+
