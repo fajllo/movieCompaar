@@ -62,6 +62,7 @@ const searchResults = document.querySelector(".dropdown-content");
 
 const onInput =  async event => {
     const movies = await searchMovie(event.target.value)
+    searchResults.innerHTML="";
     dropdown.classList.add('is-active')
     for(let movie of movies){
         const anchor = document.createElement('a');
@@ -70,7 +71,6 @@ const onInput =  async event => {
         <img src="${movie.Poster}">
         <h3> ${movie.Title}</h3>
         `;
-        console.log(anchor)
         searchResults.appendChild(anchor);
     }
     
