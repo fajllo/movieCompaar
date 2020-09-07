@@ -25,7 +25,7 @@ function autocomp({root}) {
             anchor.classList.add("dropdown-item");
             anchor.innerHTML = `
             <img src="${movie.Poster} alt="sorry no image!"">
-            <h3> ${movie.Title}</h3>
+            <h3> ${movie.Title} (${movie.Year})</h3>
             `;
             searchResults.appendChild(anchor);
             anchor.addEventListener('click', event =>{

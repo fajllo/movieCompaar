@@ -71,8 +71,7 @@ function movieViwe(movieAll){
 }
 
 autocomp({root: document.querySelector(".autocomplete")});
-autocomp({root: document.querySelector(".autocomplete2")});
-autocomp({root: document.querySelector(".autocomplete3")});
+
 
 
 
