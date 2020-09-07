@@ -70,54 +70,11 @@ function movieViwe(movieAll){
   `
 }
 
+autocomp({root: document.querySelector(".autocomplete")});
+autocomp({root: document.querySelector(".autocomplete2")});
+autocomp({root: document.querySelector(".autocomplete3")});
 
 
 
-const autocomplete = document.querySelector(".autocomplete");
-autocomplete.innerHTML = `
-<label for=""><b>Search for a movie!</b></label>    
-<input type="text" name="" class="input">
-<div class="dropdown">
-    <div class="dropdown-menu">
-        <div class="dropdown-content results"></div>
-    </div>
-</div>`
-const input = document.querySelector("input");
-const dropdown = document.querySelector(".dropdown");
-const searchResults = document.querySelector(".dropdown-content");
-const body = document.body;
 
-
-const onInput =  async event => {
-    const movies = await searchMovie(event.target.value)
-    if(!movies.length){
-        dropdown.classList.remove('is-active');
-        return;
-    }
-    searchResults.innerHTML="";
-    dropdown.classList.add('is-active')
-    for(let movie of movies){
-        const anchor = document.createElement('a');
-        anchor.classList.add("dropdown-item");
-        anchor.innerHTML = `
-        <img src="${movie.Poster} alt="sorry no image!"">
-        <h3> ${movie.Title}</h3>
-        `;
-        searchResults.appendChild(anchor);
-        anchor.addEventListener('click', event =>{
-            dropdown.classList.remove('is-active');
-            input.value = movie.Title
-            fullMovie(movie);
-        })
-    }
-    
-}
-
-input.addEventListener("input", debounce(onInput));
-document.addEventListener('click',event => {
-    if(!autocomplete.contains(event.target)){
-        dropdown.classList.remove('is-active')
-    }
-    
-})
 
