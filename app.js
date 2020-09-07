@@ -22,13 +22,13 @@ async function searchMovie(searchFraze){
 }
 
 async function fullMovie(movie,klasa){
+    tutorial.classList.add("is-hidden")
     const response = await axios.get("http://www.omdbapi.com/",{
         params: {
             apikey:"15915ed8",
             i: movie.imdbID
         }
     });
-    
     document.querySelector(`.${klasa}`).innerHTML = movieViwe(response.data)
 }
 
@@ -70,7 +70,7 @@ function movieViwe(movieAll){
 </article>
   `
 }
-
+const tutorial = document.querySelector(".tutorial");
 autocomp({root: document.querySelector("#left-autocomplete")},"sum1");
 autocomp({root: document.querySelector("#right-autocomplete")},"sum2");
 

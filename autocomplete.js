@@ -14,6 +14,7 @@ function autocomp({root},name) {
     const input = root.querySelector("input");
     const dropdown = root.querySelector(".dropdown");
     const searchResults = root.querySelector(".dropdown-content");
+    
 
 
     const onInput =  async event => {
@@ -34,7 +35,8 @@ function autocomp({root},name) {
             searchResults.appendChild(anchor);
             anchor.addEventListener('click', event =>{
                 dropdown.classList.remove('is-active');
-                input.value = movie.Title
+                input.value = movie.Title;
+                
                 fullMovie(movie,name);
             })
         }
