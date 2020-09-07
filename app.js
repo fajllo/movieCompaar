@@ -21,14 +21,15 @@ async function searchMovie(searchFraze){
 
 }
 
-async function fullMovie(movie){
+async function fullMovie(movie,klasa){
     const response = await axios.get("http://www.omdbapi.com/",{
         params: {
             apikey:"15915ed8",
             i: movie.imdbID
         }
     });
-    document.querySelector("#summary").innerHTML = movieViwe(response.data)
+    
+    document.querySelector(`.${klasa}`).innerHTML = movieViwe(response.data)
 }
 
 function movieViwe(movieAll){
@@ -70,7 +71,8 @@ function movieViwe(movieAll){
   `
 }
 
-autocomp({root: document.querySelector(".autocomplete")});
+autocomp({root: document.querySelector("#left-autocomplete")},"sum1");
+autocomp({root: document.querySelector("#right-autocomplete")},"sum2");
 
 
 

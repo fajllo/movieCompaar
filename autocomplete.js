@@ -1,4 +1,7 @@
-function autocomp({root}) {
+function autocomp({root},name) {
+    const summary = document.createElement('div');
+    summary.classList.add(`${name}`);
+    
     root.innerHTML = `
     <label for=""><b>Search for a movie!</b></label>    
     <input type="text" name="" class="input">
@@ -7,6 +10,7 @@ function autocomp({root}) {
             <div class="dropdown-content results"></div>
         </div>
     </div>`
+    root.appendChild(summary);
     const input = root.querySelector("input");
     const dropdown = root.querySelector(".dropdown");
     const searchResults = root.querySelector(".dropdown-content");
@@ -31,7 +35,7 @@ function autocomp({root}) {
             anchor.addEventListener('click', event =>{
                 dropdown.classList.remove('is-active');
                 input.value = movie.Title
-                fullMovie(movie);
+                fullMovie(movie,name);
             })
         }
         
