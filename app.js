@@ -48,23 +48,23 @@ function movieViwe(movieAll){
       </div>
     </div>
   </article>
-  <article class="notification is-primary Awards">
+  <article class="notification is-dark Awards">
   <p class="title">${movieAll.Awards}</p>
   <p class="subtitle">Awards</p>
 </article>
-<article class="notification is-primary">
+<article class="notification is-dark Box">
   <p class="title">${movieAll.BoxOffice}</p>
   <p class="subtitle">BoxOffice</p>
 </article>
-<article class="notification is-primary">
+<article class="notification is-dark Metascore">
   <p class="title">${movieAll.Metascore}</p>
   <p class="subtitle">Metascore</p>
 </article>
-<article class="notification is-primary">
+<article class="notification is-dark Rating">
   <p class="title">${movieAll.imdbRating}</p>
   <p class="subtitle">imDB Rating</p>
 </article>
-<article class="notification is-primary">
+<article class="notification is-dark Votes">
   <p class="title">${movieAll.imdbVotes}</p>
   <p class="subtitle">imDB Votes</p>
 </article>
