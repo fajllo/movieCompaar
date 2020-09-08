@@ -48,7 +48,7 @@ function movieViwe(movieAll){
       </div>
     </div>
   </article>
-  <article class="notification is-primary">
+  <article class="notification is-primary Awards">
   <p class="title">${movieAll.Awards}</p>
   <p class="subtitle">Awards</p>
 </article>

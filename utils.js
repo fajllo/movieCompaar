@@ -6,6 +6,6 @@ function debounce(callback){
         }
         timeoutId = setTimeout(() => {
             callback.apply(null,args);
-        },800);
+        },600);
     };
 };
