@@ -6,7 +6,7 @@
 
 
 async function searchMovie(searchFraze){
-    const response = await axios.get("http://www.omdbapi.com/",{
+    const response = await axios.get("https://www.omdbapi.com/",{
         params: {
             apikey:"15915ed8",
             s: searchFraze
@@ -23,7 +23,7 @@ async function searchMovie(searchFraze){
 
 async function fullMovie(movie,klasa){
     tutorial.classList.add("is-hidden")
-    const response = await axios.get("http://www.omdbapi.com/",{
+    const response = await axios.get("https://www.omdbapi.com/",{
         params: {
             apikey:"15915ed8",
             i: movie.imdbID
