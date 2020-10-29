@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"/>
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>MovieCOMP</title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="hero is-dark is-bold">
-        <div class="hero-body">
-          <div class="container level">
-            <h1 class="title level-left">
-              MOVIE COMPARE!
-              
-              <span class="icon">
-                <i class="fas fa-film"></i>
-              </span>
-            </h1>
-            
-            
-            <button class="button is-danger is-light is-large level-right ">COMPARE!</button>
-            
-            
-          </div>
-          <h7>*You have to make <b>TWO</b> new searches in order to app works corectly!</h7>
-        </div>
-      </section>
-      <div class="container">
-        <div class="columns">
-          <div class="column">
-            <div id="left-autocomplete"></div>
-          </div>
-          <div class="column">
-            <div id="right-autocomplete"></div>
+      <div class="hero-body">
+        <div class="container level">
+          <h1 class="title level-left">
+            MOVIE COMPARE!
+            <span class="icon">
+              <i class="fas fa-film"></i>
+            </span>
+          </h1>
+          <div>
+            <button class="button is-danger is-light is-large level-right">
+              COMPARE!
+            </button>
+            <button
+              class="button is-success is-light is-large level-right new-compare"
+            >
+              NEW COMPARE!
+            </button>
           </div>
         </div>
-        <div class="column is-half notification is-dark tutorial">
-          <h1>Search For a Movie on Both Sides</h1>
-        </div>
-
-
-
-        <!-- <div class="autocomplete"></div>
-        <div id="summary"></div> -->
+        <h7
+          >*You have to make <b>TWO</b> new searches in order to app works
+          corectly or just click NEW COMPARE! 😎</h7
+        >
       </div>
-      <script src="utils.js"></script>
-      <script src="autocomplete.js"></script>
-      <script src="app.js"></script>
-      <script src="compare.js"></script>
+    </section>
+    <div class="container">
+      <div class="columns content">
+        <div class="column">
+          <div id="left-autocomplete"></div>
+        </div>
+        <div class="column">
+          <div id="right-autocomplete"></div>
+        </div>
+      </div>
+      <div class="column is-half notification is-dark tutorial">
+        <h1>Search For a Movie on Both Sides</h1>
+      </div>
 
-
-
-  
-
-    
-</body>
+      <!-- <div class="autocomplete"></div>
+        <div id="summary"></div> -->
+    </div>
+    <script src="utils.js"></script>
+    <script src="autocomplete.js"></script>
+    <script src="app.js"></script>
+    <script src="compare.js"></script>
+  </body>
 </html>
