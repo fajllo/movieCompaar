@@ -5,7 +5,8 @@ btnNew = document.querySelector('.new-compare');
 btnNew.addEventListener('click', () => {
   document.querySelector('.sum1').innerHTML = '';
   document.querySelector('.sum2').innerHTML = '';
-  document.querySelectorAll('input').value = '';
+  document.querySelectorAll('input').value[0] = '';
+  document.querySelectorAll('input').value[1] = '';
 });
 
 async function searchMovie(searchFraze) {
