@@ -1,5 +1,4 @@
 .tutorial {
-  
   text-align: center;
   margin: auto;
 }
@@ -25,7 +24,6 @@ figure .image img {
 
 .hero {
   margin-bottom: 20px;
-  
 }
 
 .forms {
@@ -42,4 +40,8 @@ figure .image img {
 .dropdown-item img {
   height: 50px;
   margin-right: 10px;
+}
+
+#movie-comp {
+  margin: 10px;
 }
